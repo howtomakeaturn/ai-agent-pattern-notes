@@ -1,0 +1,40 @@
+# Composer dependencies
+/vendor/
+
+# Composer lock file (uncomment if this is a library, not an application)
+# composer.lock
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.phpstorm.meta.php
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# PHP CS Fixer
+.php_cs.cache
+.php-cs-fixer.cache
+
+# PHPUnit
+.phpunit.result.cache
+phpunit.xml
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
