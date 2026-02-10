@@ -9,7 +9,7 @@ $dotenv->load();
 use OpenAI\Client;
 
 /**
- * State Preview & Confirmation Pattern - 餐廳訂餐系統（增強版）
+ * State Preview & Confirmation Pattern - 訂單預覽與確認
  *
  * 這個範例展示如何在 AI agent 中實現狀態預覽與確認機制：
  *
@@ -19,9 +19,10 @@ use OpenAI\Client;
  * 3. 強制要求預覽步驟，防止直接跳到最終確認（Enforcement）
  * 4. 每次修改後，必須重新預覽（Re-preview after modification）
  *
- * 與 Control Flow Pattern 的差異：
- * - Control Flow: 關注步驟的順序依賴（A→B→C）
- * - State Preview: 關注每個步驟內的預覽→確認循環（Preview→Confirm/Modify→Preview）
+ * 為什麼需要這個 Pattern：
+ * - 涉及金錢、法律或重要決策的操作，用戶必須看到完整資訊
+ * - 防止誤操作或誤解導致的損失
+ * - 在 AI agent 中，不能假設用戶已經"看過"或"記得"細節
  *
  * 實際應用場景：
  * - 電商購物車結帳前的訂單預覽
