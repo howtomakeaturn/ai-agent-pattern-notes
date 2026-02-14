@@ -439,7 +439,7 @@ if ($ticket3->billing_data) {
 echo "\n\n=== 完成 ===\n";
 echo "\n三種實作方式比較：\n";
 echo "─────────────────────────────────────────────────────────────────────\n";
-echo "           Demo 06              Demo 07                Demo 09\n";
+echo "           Demo 06              Demo 07                Demo 07\n";
 echo "           手寫 if/else         winzou/state-machine   yohang/finite\n";
 echo "─────────────────────────────────────────────────────────────────────\n";
 echo "狀態定義    字串 + 陣列          config 字串陣列         PHP Enum ✓\n";

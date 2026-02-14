@@ -43,6 +43,18 @@
 - [demo-finite.php](patterns/07-state-machine-routing/demo-finite.php) — 使用 yohang/finite（PHP Enum）
 - [demo-pocketflow.php](patterns/07-state-machine-routing/demo-pocketflow.php) — 使用 PocketFlow（Graph-based）
 
+### 8. Graph-Based Agent Engine (圖驅動的 Agent 引擎)
+**問題**: Demo 06 的流程邏輯寫在程式碼裡，改流程需要改 code，無法讓非技術人員設計流程？
+**解決**: 將流程定義抽離成資料結構（graph），引擎是通用的，換個 graph 就是不同的 agent
+**特點**: 這是 Vapi、Voiceflow、Bland AI 等 SaaS 平台的底層架構 — UI 拖拉產生 graph，通用引擎執行
+**範例**: [patterns/08-graph-based-agent-engine/demo.php](patterns/08-graph-based-agent-engine/demo.php)
+
+### 9. Graph Engine + Actions (圖驅動引擎 + 外部動作)
+**問題**: Demo 08 的 LLM 只是「說」它做了某事，實際沒有觸發任何外部動作（API、Email、DB）？
+**解決**: 在節點上掛載 actions，進入節點或選擇結果時自動執行真實的外部操作
+**動作類型**: API 呼叫、發送 Email、Webhook 通知、資料庫寫入、轉接真人客服
+**範例**: [patterns/09-graph-engine-with-actions/demo.php](patterns/09-graph-engine-with-actions/demo.php)
+
 ## 使用方式
 
 1. 複製 `.env.example` 為 `.env`，填入 OpenAI API Key
