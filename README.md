@@ -29,6 +29,20 @@
 **解決**: 提供 reset_order 工具函數重置訂單狀態，智能保留過敏等不變資訊，支援「跟上次一樣」
 **範例**: [patterns/05-session-renewal/demo.php](patterns/05-session-renewal/demo.php)
 
+### 6. Dynamic Routing (動態路由)
+**問題**: 如何根據業務狀態動態控制 AI 可用的工具，避免錯誤呼叫？
+**解決**: 根據當前 phase 動態提供可用工具，工具函數自己決定下一步狀態，AI 只看得到當前可用的功能
+**範例**: [patterns/06-dynamic-routing/demo.php](patterns/06-dynamic-routing/demo.php)
+
+### 7. State Machine Routing (狀態機路由)
+**問題**: Demo 06 的手寫 if/elseif 路由邏輯難以維護，如何用更結構化的方式管理狀態轉換？
+**解決**: 使用狀態機套件管理狀態轉換，宣告式定義流程，自動計算可用工具
+**範例**: 同一模式的四種實作方式
+- [demo-winzou.php](patterns/07-state-machine-routing/demo-winzou.php) — 使用 winzou/state-machine
+- [demo-neuronai.php](patterns/07-state-machine-routing/demo-neuronai.php) — 使用 NeuronAI 框架
+- [demo-finite.php](patterns/07-state-machine-routing/demo-finite.php) — 使用 yohang/finite（PHP Enum）
+- [demo-pocketflow.php](patterns/07-state-machine-routing/demo-pocketflow.php) — 使用 PocketFlow（Graph-based）
+
 ## 使用方式
 
 1. 複製 `.env.example` 為 `.env`，填入 OpenAI API Key
