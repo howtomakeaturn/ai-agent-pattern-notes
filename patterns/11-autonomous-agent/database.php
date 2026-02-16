@@ -70,6 +70,22 @@ function getArticlesByStatus(PDO $db, string $status): array {
 }
 
 /**
+ * 取得最舊的文章（按狀態）
+ * 遵循 FIFO (First In, First Out) 原則
+ */
+function getOldestArticleByStatus(PDO $db, string $status): ?array {
+    $stmt = $db->prepare("
+        SELECT * FROM articles
+        WHERE status = ?
+        ORDER BY updated_at ASC
+        LIMIT 1
+    ");
+    $stmt->execute([$status]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result ?: null;
+}
+
+/**
  * 根據 ID 查詢文章
  */
 function getArticleById(PDO $db, int $id): ?array {
