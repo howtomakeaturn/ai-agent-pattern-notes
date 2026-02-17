@@ -55,6 +55,24 @@
 **動作類型**: API 呼叫、發送 Email、Webhook 通知、資料庫寫入、轉接真人客服
 **範例**: [patterns/09-graph-engine-with-actions/demo.php](patterns/09-graph-engine-with-actions/demo.php)
 
+### 10. Scheduled Workflow (排程工作流程)
+**問題**: 如何用排程系統協調多階段 AI 任務？需要在特定時間執行、等待外部事件（人工審核），且跨越數小時甚至數天？
+**解決**: 用 cron 在固定時間觸發不同階段的任務，透過資料庫持久化狀態，支援 Human-in-the-loop
+**特點**: 時間驅動（非用戶輸入）、多 process 共享狀態、長時間運作
+**範例**: [patterns/10-scheduled-workflow/](patterns/10-scheduled-workflow/) — 完整內容自動化系統（研究→撰寫→審核→發布）
+
+### 11. Autonomous Agent (自主 Agent)
+**問題**: Demo 10 的固定時間執行固定任務太僵化，如何讓 AI 自己看狀態決定現在該做什麼？
+**解決**: 定時執行 agent，但讓 LLM 透過 Tool Functions 分析系統狀態並自主決策下一步動作
+**特點**: AI 自己判斷優先順序、可立即修正錯誤、自我品質把關，更接近「AI employee」概念
+**範例**: [patterns/11-autonomous-agent/](patterns/11-autonomous-agent/) — AI 自主管理內容生產流程
+
+### 12. Rule-Based Agent (基於規則的 Agent)
+**問題**: Demo 11 的 LLM 決策在固定工作流程中是過度設計，成本高、速度慢且有不確定性？
+**解決**: 用程式碼中的固定優先級規則決定動作，只在執行動作時使用 LLM，不用 LLM 做決策
+**特點**: 成本低（省 50%）、速度快、完全可預測、行為確定
+**範例**: [patterns/12-rule-based-agent/](patterns/12-rule-based-agent/) — 用固定規則管理內容生產流程
+
 ## 使用方式
 
 1. 複製 `.env.example` 為 `.env`，填入 OpenAI API Key
