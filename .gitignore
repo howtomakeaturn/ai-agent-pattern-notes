@@ -43,3 +43,6 @@ phpunit.xml
 *.db
 *.sqlite
 *.sqlite3
+
+# RAG embeddings cache
+patterns/13-rag/embeddings.json

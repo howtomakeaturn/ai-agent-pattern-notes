@@ -73,6 +73,18 @@
 **特點**: 成本低（省 50%）、速度快、完全可預測、行為確定
 **範例**: [patterns/12-rule-based-agent/](patterns/12-rule-based-agent/) — 用固定規則管理內容生產流程
 
+### 13. RAG (Retrieval-Augmented Generation)
+**問題**: LLM 無法回答專屬業務規則、容易產生幻覺、知識過時？
+**解決**: 檢索增強生成 — 先從知識庫檢索相關文檔，再讓 LLM 基於檢索結果生成答案
+**核心技術**: Embedding（語義向量化）+ Vector Search（相似度檢索）+ LLM Generation
+**範例**: [patterns/13-rag/demo.php](patterns/13-rag/demo.php) — 電商客服知識庫問答系統
+
+### 14. RAG + Similarity Threshold (RAG + 相似度門檻)
+**問題**: Demo 13 的 RAG 永遠返回 Top-K 結果，即使相似度很低也會「硬凹」答案？
+**解決**: 設定相似度門檻，過濾不相關文檔，沒有相關內容時明確拒絕回答
+**關鍵機制**: 門檻過濾 + 空結果處理 + 嚴格 System Prompt
+**範例**: [patterns/14-rag-with-threshold/demo.php](patterns/14-rag-with-threshold/demo.php) — 防止幻覺的生產級 RAG
+
 ## 使用方式
 
 1. 複製 `.env.example` 為 `.env`，填入 OpenAI API Key
