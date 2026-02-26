@@ -46,3 +46,5 @@ phpunit.xml
 
 # RAG embeddings cache
 patterns/13-rag/embeddings.json
+# Image generation output
+patterns/16-image-generation/output.png
